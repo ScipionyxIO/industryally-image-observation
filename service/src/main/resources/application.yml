@@ -1,0 +1,33 @@
+#
+server:
+  port: 6011
+  compression:
+    enabled: true
+    min-response-size: 1
+    mime-types:
+    - application/hal+json
+    - application/json
+    - application/xml
+    - text/html
+    - text/xml
+    - text/plain
+
+spring:
+  application:
+    name: scipionyx-industrially-observation-service
+    admin:
+      enabled: true
+  jpa.hibernate.ddl-auto: update
+  datasource:
+    url: jdbc:mariadb://localhost:3306/scipionyx_industrially_image_recon
+    username: user
+    password: user
+  data:
+    rest:
+      max-page-size: 1000
+      basePath: /api/repository
+
+eureka.client:
+  enabled: false
+  serviceUrl:
+    defaultZone: ${EUREKA_URI:http://localhost:5001/eureka}
